@@ -2,10 +2,10 @@
 #define DEVICECONFIG_H_
 
 #include <Arduino.h>
-#include <EEPROM.h>
+#include "FlashVariant.h"
 
 #define EEPROM_MAX_SIZE 2048
-#define LOG_START_ADDRESS 0
+#define LOG_START_ADDRESS 1024
 #define LOG_END_ADDRESS EEPROM_MAX_SIZE
 
 template <typename LogEntry> 
@@ -36,11 +36,10 @@ class DataLog{
     int getOldestEntryAddress();
     void getAddressToOverwrite(int &address, uint16_t &index);
 
-    //stringify for 
+    //stringify for various logdata
     void wakeupReasonToString(uint8_t code, String& reason);
     void binaryToString(uint8_t status, String& binstatus);
     void timeToString(uint64_t timeInS, String& time);
-    
     
 };
 

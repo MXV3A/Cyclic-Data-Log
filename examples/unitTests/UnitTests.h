@@ -5,6 +5,10 @@
 #include <ArduinoUnit.h>
 #include "DataLog.h"
 
+#if defined(CONFIG_PLATFORM_8721D) || defined(BOARD_RTL8722D) || defined(BOARD_RTL8722DM_MINI) || defined(BOARD_RTL8720DN_BW16)
+  #include <sys_api.h>
+#endif
+
 struct TestLogEntry{
   int8_t rssi;
   uint32_t timestamp;

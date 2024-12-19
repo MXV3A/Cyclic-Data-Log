@@ -134,7 +134,7 @@ test(OverflowLog) {
 test(AAAkeepLog_afterreset){
   //Create config with seed
   DataLog<TestLogEntry> datalog;
-  TestLogEntry writeentry = {2600, 0, 1, 0x04, 99, 88, 77, 66, 55};
+  TestLogEntry writeentry = {25, 0, 1, 0x04, 99, 88, 77, 66, 55};
 
   //1. assert that actual Log matches expected Log
   TestLogEntry readentry;
@@ -153,7 +153,12 @@ test(AAAkeepLog_afterreset){
   if(!correct){
     datalog.wipeLog();
     datalog.addEntry(&writeentry);
-    ESP.restart();
+
+    #if defined(ESP32) || defined(ESP8266)
+      ESP.restart();
+    #elif defined(CONFIG_PLATFORM_8721D) || defined(BOARD_RTL8722D) || defined(BOARD_RTL8722DM_MINI) || defined(BOARD_RTL8720DN_BW16)
+      sys_reset();
+    #endif
   }else pass();
 }
 

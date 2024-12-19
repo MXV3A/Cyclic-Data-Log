@@ -1,6 +1,6 @@
 # ESP32-Data-Log
 Log custom data in persistent memory.  
-Written for ESP32 but can work on any embedded system that has or emulates EEPROM.  
+This Library is written for and tested on ESP32 (Espressif) and BW16 (AmebaD).
 
 ## Installation
 Download or Clone this repository and pull the folder into your Arduino libraries folder or use the 'Add .ZIP Libraries' function in the ArduinoIDE.  
@@ -65,6 +65,7 @@ void setup(){
 
 void loop(){}
 ```
+(For other microcontrollers see examples)
 
 ##  If EEPROM is also used by another Library
 

@@ -1,27 +1,45 @@
 #include <DataLog.h>
+//Headers on different Platforms
+#if defined(ESP32) || defined(ESP8266)
+  #define SAMPLE_PIN GPIO_NUM_5
+#elif defined(BOARD_RTL8720DN_BW16)
+  #include <sys_api.h>
+  #define SAMPLE_PIN PA26
+#endif
 
 struct Entry{
     int timestamp;
     int sensor1;
-    int sensor2;
+    int counter;
 };
 
 void setup(){
     Serial.begin(115200);
-    pinMode(GPIO_NUM_4, INPUT);
+    pinMode(SAMPLE_PIN, INPUT);
 
     DataLog<Entry> log;
 
-    Entry readentry;
-    if(log.readEntry(-1, &readentry) != -1){
-        Serial.println("Logged Sensor Value: "+String(readentry.sensor1));
+    //Read last Entry
+    Entry entry;
+    if(log.readEntry(-1, &entry) != -1){
+        Serial.println((String)"Previous Entry:" 
+                      +"Time "+entry.timestamp
+                      +" Sensor1 "+entry.sensor1
+                      +" Counter "+entry.counter);
     }
 
-    Entry newentry = {time(NULL), analogRead(GPIO_NUM_4), 25};
+    //Write new Entry
+    Entry newentry = {(int)(millis()), digitalRead(SAMPLE_PIN), entry.counter+1};
     log.addEntry(&newentry);
 
-    delay(10000);
-    ESP.restart();
+    delay(6000);
+
+    //Restart on different Platforms
+    #if defined(ESP32) || defined(ESP8266)
+      ESP.restart();
+    #elif defined(BOARD_RTL8720DN_BW16)
+      sys_reset();
+    #endif
 }
 
 void loop(){}
