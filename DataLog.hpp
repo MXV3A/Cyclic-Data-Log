@@ -71,7 +71,7 @@ int DataLog<LogEntry>::writeEntryToEEPROM(int address, uint16_t index, LogEntry*
   EEPROM.put(address+sizeof(index), *entry);
   EEPROM.commit();
 
-  uint8_t checkindex = 0;
+  uint16_t checkindex = 0;
   EEPROM.get(address, checkindex);
   EEPROM.end();
   if(checkindex != index) return -1;

@@ -4,7 +4,7 @@ struct Entry{
     int timestamp;
     int sensor1;
     int sensor2;
-}
+};
 
 void setup(){
     Serial.begin(115200);
@@ -24,4 +24,4 @@ void setup(){
     ESP.restart();
 }
 
-void loop{}
+void loop(){}

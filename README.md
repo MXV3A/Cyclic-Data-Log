@@ -13,7 +13,7 @@ struct Entry{
     int timestamp;
     int sensor1;
     int sensor2;
-}
+};
 ```
 
 ### 2 - Create a Log
@@ -26,7 +26,7 @@ DataLog<Entry> log;
 Entry newentry = {time(NULL), analogRead(GPIO_NUM_4), 25};
 log.addEntry(&newentry); 
 ```
-The log adds the entry to the persistent memory and remember all entries even after a reset. If the log is full the oldest entry will be overwritten.
+The log adds the entry to the persistent memory and remembers all entries even after a reset. If the log is full the oldest entry will be overwritten.
 
 ### 4 - Read an Entry 
 ```c
@@ -43,7 +43,7 @@ struct Entry{
     int timestamp;
     int sensor1;
     int sensor2;
-}
+};
 
 void setup(){
     Serial.begin(115200);
@@ -63,7 +63,7 @@ void setup(){
     ESP.restart();
 }
 
-void loop{}
+void loop(){}
 ```
 
 ##  If EEPROM is also used by another Library
