@@ -1,7 +1,7 @@
 # ESP32-Data-Log
 Log custom data in persistent memory.  
 Used to log sensor data for diagnosing a problem in case of a crash, or for saving settings while keeping past settings as fallback.  
-This Library is written for and tested on ESP32 (Espressif), BW16 (AmebaD), and STM32 (nordic SEMI.  
+This Library is written for and tested on ESP32 (Espressif), BW16 (AmebaD).
 
 ## Installation
 Download or Clone this repository and pull the folder into your Arduino libraries folder or use the 'Add .ZIP Libraries' function in the ArduinoIDE.  
