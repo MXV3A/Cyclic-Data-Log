@@ -1,5 +1,6 @@
 # ESP32-Data-Log
 Log custom data in persistent memory.  
+Used to log sensor data for diagnosing a problem in case of a crash, or for saving settings while keeping past settings as fallback.
 This Library is written for and tested on ESP32 (Espressif) and BW16 (AmebaD).
 
 ## Installation
