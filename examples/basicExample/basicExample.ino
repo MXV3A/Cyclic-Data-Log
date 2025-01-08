@@ -1,11 +1,9 @@
 #include <DataLog.h>
-//Headers on different Platforms
-#if defined(ESP32) || defined(ESP8266)
-  #define SAMPLE_PIN GPIO_NUM_5
-#elif defined(BOARD_RTL8720DN_BW16)
+#if defined(BOARD_RTL8720DN_BW16)
   #include <sys_api.h>
-  #define SAMPLE_PIN PA26
 #endif
+
+#define SAMPLE_PIN 9
 
 struct Entry{
     int timestamp;
@@ -15,6 +13,7 @@ struct Entry{
 
 void setup(){
     Serial.begin(115200);
+    Serial.println("Log Start");
     pinMode(SAMPLE_PIN, INPUT);
 
     DataLog<Entry> log;
@@ -39,6 +38,8 @@ void setup(){
       ESP.restart();
     #elif defined(BOARD_RTL8720DN_BW16)
       sys_reset();
+    #elif defined(STM32_CORE_VERSION)
+      NVIC_SystemReset();
     #endif
 }
 

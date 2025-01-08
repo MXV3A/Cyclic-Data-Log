@@ -1,7 +1,7 @@
-# ESP32-Data-Log
+# Ring-Data-Log
 Log custom data in persistent memory.  
 Used to log sensor data for diagnosing a problem in case of a crash, or for saving settings while keeping past settings as fallback.  
-This Library is written for and tested on ESP32 (Espressif), BW16 (AmebaD).
+This Library is written for and tested on ESP32 (Espressif), STM32 (STMicroelectronics), and BW16 (AmebaD).
 
 ## Installation
 Download or Clone this repository and pull the folder into your Arduino libraries folder or use the 'Add .ZIP Libraries' function in the ArduinoIDE.  
@@ -74,7 +74,7 @@ Go into <b>DataLog.h</b> and edit the following Macros
 ```c
 //Change to Full Size of EEPROM in use
 //If EEPROM range is used but not covered by this number it will be erased
-#define EEPROM_MAX_SIZE 2048
+#define EEPROM_MAX_SIZE 4096
 
 //Change to start and end of where the data log should be.
 //Memory outside this area is not touched by the library

@@ -2,10 +2,10 @@
 #define DEVICECONFIG_H_
 
 #include <Arduino.h>
-#include "FlashVariant.h"
+#include "FlashVariant.hpp"
 
-#define EEPROM_MAX_SIZE 2048
-#define LOG_START_ADDRESS 1024
+#define EEPROM_MAX_SIZE 4096
+#define LOG_START_ADDRESS 0
 #define LOG_END_ADDRESS EEPROM_MAX_SIZE
 
 template <typename LogEntry> 
