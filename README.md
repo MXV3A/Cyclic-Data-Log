@@ -1,10 +1,10 @@
-# Ring-Data-Log
+# Cyclic-Data-Log
 Log custom data in persistent memory.  
-Used to log sensor data for diagnosing a problem in case of a crash, or for saving settings while keeping past settings as fallback.  
+Used to log sensor data for diagnosing problems in case of a crash, or for saving settings while keeping past settings as fallback.  
 This Library is written for and tested on ESP32 (Espressif), STM32 (STMicroelectronics), and BW16 (AmebaD).
 
 ## Installation
-Download or Clone this repository and pull the folder into your Arduino libraries folder or use the 'Add .ZIP Libraries' function in the ArduinoIDE.  
+Download or Clone this repository and pull the folder into the Arduino libraries folder or use the 'Add .ZIP Libraries' function in the ArduinoIDE.  
 
 ## Using the Log
 
